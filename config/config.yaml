@@ -1,0 +1,43 @@
+# RULens configuration — single source of truth for all hyperparameters.
+# Loaded and validated by src/common/config.py.
+
+# Global RNG seed, recorded in every run.
+seed: 1337
+
+# Default compute device; override per-run with --device.
+device: cpu
+
+model:
+  # Interpretability target: Chronos-Base (>=200M). Small/Bolt are deploy-only.
+  chronos_variant: amazon/chronos-t5-base
+  # Residual-stream layers to attach forward hooks to for activation capture.
+  layers_to_hook: [4, 8, 12]
+  context_length: 512
+  prediction_length: 64
+
+sae:
+  # SAE dictionary size; swept over 8K-32K with several k values.
+  dict_size: 16384
+  # TopK sparsity: number of active latents per token.
+  k: 64
+  learning_rate: 0.0004
+  batch_size: 4096
+  architecture: topk          # topk | jumprelu
+
+conformal:
+  # Miscoverage level: target coverage is 1 - alpha (alpha=0.1 -> 90%).
+  # Coverage is marginal and assumes exchangeability.
+  alpha: 0.1
+  method: split_cp            # split_cp | enbpi | spci | cptc
+
+data:
+  cmapss_path: data/raw/cmapss
+  bosch_path: data/raw/bosch_cnc
+  processed_dir: data/processed
+  window_size: 30
+  window_stride: 1
+  rul_clip: 125               # piecewise-linear RUL ceiling (C-MAPSS convention)
+
+mlflow:
+  tracking_uri: sqlite:///mlflow.db
+  experiment_name: rulens

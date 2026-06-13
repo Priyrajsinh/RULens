@@ -1,0 +1,35 @@
+# Runtime dependencies (kept in sync with pyproject.toml).
+#
+# CI installs only the lightweight subset the current code imports
+# (numpy, pyyaml, pydantic). The heavier model/training/serving stack below is
+# resolved on the GPU machines where the heavy scripts run.
+
+# --- Core (installed and exercised by the CI gates) ---
+numpy==2.4.6
+pyyaml==6.0.3
+pydantic==2.13.4
+
+# --- Data ---
+pandas>=2.2,<3
+
+# --- Time-series foundation models and interpretability (GPU experiment env) ---
+torch>=2.4,<3
+transformers>=4.44
+chronos-forecasting>=1.5
+sae-lens>=4.0
+
+# --- Calibrated uncertainty / causal attribution ---
+mapie>=0.9
+econml>=0.15
+
+# --- Experiment tracking and data versioning ---
+mlflow>=2.16
+dvc>=3.55
+
+# --- Serving and UI ---
+fastapi>=0.115
+uvicorn>=0.30
+streamlit>=1.38
+
+# --- Plotting ---
+matplotlib>=3.9

@@ -1,0 +1,18 @@
+CLAUDE.md
+ROADMAP.md
+.claude/
+planning/
+venv/
+# Top-level artifact dirs only (anchored so they don't match src/models, src/data).
+/models/
+/data/
+mlflow.db
+learning_log.md
+explain.md
+__pycache__/
+*.pyc
+.dvc/cache/
+
+# Local-only dev helpers; not part of the published project.
+scripts/block_dangerous.ps1
+tests/test_guard_cases.py
