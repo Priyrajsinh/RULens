@@ -1,0 +1,5 @@
+outs:
+- md5: d877706393885cd9fc1160dc087d22fa
+  size: 116472008
+  hash: md5
+  path: X.npy
