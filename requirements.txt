@@ -11,6 +11,8 @@ pydantic==2.13.4
 
 # --- Data ---
 pandas>=2.2,<3
+scikit-learn>=1.5,<2
+joblib>=1.4
 
 # --- Time-series foundation models and interpretability (GPU experiment env) ---
 torch>=2.4,<3

@@ -5,12 +5,19 @@ planning/
 venv/
 # Top-level artifact dirs only (anchored so they don't match src/models, src/data).
 /models/
-/data/
+# Data blobs live in DVC, not git. Keep the directory tree and the .dvc pointer
+# files so the exact dataset version is reproducible from a clean clone.
+/data/**
+!/data/
+!/data/**/
+!/data/**/*.dvc
 mlflow.db
+mlruns/
 learning_log.md
 explain.md
 __pycache__/
 *.pyc
+.coverage
 .dvc/cache/
 
 # Local-only dev helpers; not part of the published project.

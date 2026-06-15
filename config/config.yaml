@@ -37,6 +37,12 @@ data:
   window_size: 30
   window_stride: 1
   rul_clip: 125               # piecewise-linear RUL ceiling (C-MAPSS convention)
+  # Sensors whose train variance falls below this are near-constant and dropped.
+  variance_threshold: 1.0e-6
+  # FD002/FD004 cycle through six operating conditions; scale each one separately
+  # so degradation signal isn't swamped by operating-point shifts.
+  operating_regimes: 6
+  multi_regime_subsets: [FD002, FD004]
 
 mlflow:
   tracking_uri: sqlite:///mlflow.db

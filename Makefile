@@ -12,7 +12,7 @@ setup:
 	# Lightweight runtime needed for the gates. The heavy GPU stack lives in
 	# requirements.txt and is installed on experiment machines:
 	#   $(PY) -m pip install -r requirements.txt
-	$(PY) -m pip install numpy==2.4.6 pyyaml==6.0.3 pydantic==2.13.4
+	$(PY) -m pip install numpy==2.4.6 pyyaml==6.0.3 pydantic==2.13.4 "pandas>=2.2,<3" "scikit-learn>=1.5,<2" "joblib>=1.4"
 
 lint:
 	$(PY) -m black --check src tests

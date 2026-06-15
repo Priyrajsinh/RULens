@@ -33,6 +33,8 @@ ALL_MODULES = [
     "src.common.exceptions",
     "src.common.seeding",
     "src.data.loaders",
+    "src.data.scaling",
+    "src.data.build",
     "src.models.chronos",
     "src.models.baselines",
     "src.models.hooks",

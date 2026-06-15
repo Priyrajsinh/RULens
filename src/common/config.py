@@ -91,6 +91,9 @@ class DataConfig(BaseModel):
     window_size: int = Field(gt=0)
     window_stride: int = Field(gt=0)
     rul_clip: int = Field(gt=0)
+    variance_threshold: float = Field(gt=0)
+    operating_regimes: int = Field(gt=0)
+    multi_regime_subsets: list[str]
 
 
 class MLflowConfig(BaseModel):
