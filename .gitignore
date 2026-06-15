@@ -15,6 +15,7 @@ mlflow.db
 mlruns/
 learning_log.md
 explain.md
+learning_guide.md
 __pycache__/
 *.pyc
 .coverage
